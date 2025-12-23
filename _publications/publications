@@ -1,0 +1,15 @@
+---
+layout: archive
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+
+{% assign pubs = site.publications | sort: "year" | reverse %}
+
+<ol>
+{% assign pubs_sorted = site.publications | sort: "pub_date" | reverse %}
+{% for pub in pubs_sorted %}
+  <li>{{ pub.citation | markdownify }}</li>
+{% endfor %}
+</ol>
