@@ -4,33 +4,97 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
-
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+<div class="wordwrap" style="margin-bottom: 2rem; font-size: 1.1em;">
+  All publications can be found on:
+  {% if site.author.googlescholar %}
+  <a href="{{site.author.googlescholar}}">Google Scholar profile</a>
+  {% endif %}{% if site.author.googlescholar and site.author.researchgate %}
+  <a href="{{site.author.researchgate}}">ResearchGate profile</a>
+  {% endif %}
+</div>
 
 {% include base_path %}
 
+<h2>Featured Publications</h2>
+<hr />
+<ol class="publication-list">
+  <li>
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      <h2 class="archive__item-title" itemprop="headline">
+        <a href="https://doi.org/10.1016/j.jpsychires.2023.09.006" target="_blank"
+          rel="noopener noreferrer">Longitudinal exploration of biopsychosocial profiles in individuals with anorexia
+          nervosa</a>
+      </h2>
+      <p>Published in <i>Journal of psychiatric research</i>, 2023</p>
+      <p>Recommended citation: <strong>Halls, D.</strong>, Batchelor, R., Holetic, V., Leppanen, J., Williams, S., &amp;
+        Tchanturia, K. (2023). Longitudinal exploration of biopsychosocial profiles in individuals with anorexia
+        nervosa. <em>Journal of psychiatric research</em>, 167, 16--22.</p>
+    </article>
+  </li>
+  <li>
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      <h2 class="archive__item-title" itemprop="headline">
+        <a href="https://doi.org/10.3389/fpsyg.2025.1583417" target="_blank" rel="noopener noreferrer">Longitudinal
+          study of socio-emotional cognitive processing in individuals with anorexia nervosa and the impact of autistic
+          characteristics on neural processing</a>
+      </h2>
+      <p>Published in <i>Frontiers in Psychology</i>, 2025</p>
+      <p>Recommended citation: <strong>Halls, D.</strong>, Leppanen, J., Williams, S., &amp; Tchanturia, K. (2025).
+        Longitudinal study of socio-emotional cognitive processing in individuals with anorexia nervosa and the impact
+        of autistic characteristics on neural processing. <em>Frontiers in Psychology</em>, 16, 1583417.</p>
+    </article>
+  </li>
+</ol>
+
+
 <!-- New style rendering if publication categories are defined -->
+<style>
+  .publication-list {
+    padding-left: 2rem;
+  }
+
+  .publication-list li {
+    margin-bottom: 2rem;
+  }
+
+  .publication-list li::marker {
+    color: var(--global-link-color);
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+  .publication-list .archive__item {
+    margin-top: 0;
+  }
+</style>
+
 {% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
+{% for category in site.publication_category %}
+{% assign title_shown = false %}
+{% for post in site.publications reversed %}
+{% if post.category != category[0] %}
+{% continue %}
 {% endif %}
-
-
-
+{% unless title_shown %}
+<h2>{{ category[1].title }}</h2>
+<hr />
+<ol class="publication-list">
+  {% assign title_shown = true %}
+  {% endunless %}
+  <li>
+    {% include archive-single.html %}
+  </li>
+  {% endfor %}
+  {% if title_shown %}
+</ol>
+{% endif %}
+{% endfor %}
+{% else %}
+<ol class="publication-list">
+  {% for post in site.publications reversed %}
+  <li>
+    {% include archive-single.html %}
+  </li>
+  {% endfor %}
+</ol>
+{% endif %}

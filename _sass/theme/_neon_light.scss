@@ -1,0 +1,72 @@
+/* ==========================================================================
+   NEON THEME - LIGHT VERSION
+   ========================================================================== */
+/* We will force a dark appearance even for the light theme to ensure the neon effect is preserved */
+/* Color codes used for the theme */
+$primary-color              : #d500f9;
+$background                 : #0a0a0a;
+$background-light           : #161616;
+$background-lighter         : #222222;
+$text                      : #e0e0e0;
+$text-muted                : #a0a0a0;
+$link                      : #b026ff;
+$link-dark                 : #d500f9;
+$link-light                : #ff40ff;
+$footer                    : #050505;
+$border                    : #2c004d;
+$border-light              : #4d0099;
+
+/* Color codes used for the site */
+$danger-color               : #ff1744;
+$info-color                 : #00e5ff;
+$notice-color               : #ffffff;
+$success-color              : #00e676;
+$warning-color              : #ffea00;
+
+/* Other basic settings for the template */
+$border-radius              : 4px;
+$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
+$global-transition          : all 0.2s ease-in-out;
+$masthead-height            : 70px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 250px;
+$sidebar-screen-min-width   : 1024px;
+
+/* Light theme (forced to dark/neon for aesthetic reasons) */
+:root {
+  --global-base-color                 : #{$background};
+  --global-bg-color                   : #{$background};
+  --global-footer-bg-color            : #{$footer};
+  --global-border-color               : #{$border};
+  --global-dark-border-color          : #{$border-light};
+  --global-code-background-color      : #{$background-light};
+  --global-code-text-color            : #{$text-muted};
+  --global-fig-caption-color          : #{$text-muted};
+  --global-link-color                 : #{$link};
+  --global-link-color-hover           : #{$link-dark};
+  --global-link-color-visited         : #{$link-light};
+  --global-masthead-link-color        : #{$text};
+  --global-masthead-link-color-hover  : #{$link-dark};
+  --global-text-color                 : #{$text};
+  --global-text-color-light           : #{$text-muted};
+  --global-thead-color                : #{$background-lighter};
+}
+
+/* Override notice colors for high contrast */
+.page__content {
+  .notice,
+  .notice--primary,
+  .notice--info,
+  .notice--warning,
+  .notice--success,
+  .notice--danger {
+    color: #{$text};
+    border-color: #{$link};
+    background: rgba(176, 38, 255, 0.1);
+  }
+}
+
+footer {
+  color: #ffffff;
+}

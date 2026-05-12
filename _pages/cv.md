@@ -9,56 +9,32 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+## Experience
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+**Research Fellow** • 04.2024 to present • University of Nottingham
+* Developing decomposition methods in diffusion MRI
+* Working with structural and functional human connectome project in disease data
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+**Data Scientist** • 01.2024 to 04.2024 • Cromwell
+* Building and maintaing analytical pipelines 
+* Applying best practice software design priniciples 
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+**Research Assistant** • 03.2019 – 01.2024 • King’s College London
+* Functional and structural MRI analysis
+* Applying machine learning/bayesian models to MRI data 
+* Building and applying novel connectivity analysis in rsfMRI
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+**Volunteer Advisor** • 11.2020 - 10.2023 • King’s College London
+* Advising students on statisitic techniques  
+
+**Medical Doctor** • 09.2014 - 03.2019 • NHS
+* Working in busy environments to tight deadlines
+
+## Education
+
+**PhD Psychological Medicine** • 10.2019 – 12.2024 • King’s College London
+* Thesis: Exploring the Neurobiology of Socio-emotional and Cognitive Processing, along with the Impact of Autistic Traits, using Structural and Functional Neuroimaging in Individuals with Anorexia Nervosa
+
+**MSc Neuroscience distinction** • 09.2017 - 08.2018 • King’s College London
+* Modules in AI/deep learning and advanced statsitics 
+* Thesis: Computational modelling of task fMRI
