@@ -9,10 +9,10 @@
 # Basic Site Settings
 locale                   : "Uk"
 site_theme               : "neon" # the available themes options are "default", "air", "sunrise", "mint", "dirt", "contrast" and "neon"
-title                    : "Daniel Halls"
+title                    : "Dr. Daniel Halls"
 title_separator          : "-"
-name                     : &name "Daniel Halls"
-description              : &description "Your Name's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
+name                     : &name "Dr. Daniel Halls"
+description              : &description "Dr. Daniel Halls - Academic Portfolio | Clinical Neuroscientist & Research Fellow"   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://Daniel-Halls.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -24,9 +24,9 @@ repository               : "Daniel-Halls/Daniel-Halls.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Daniel Halls"
+  name             : "Dr. Daniel Halls"
   pronouns         : "he/him" # example: "she/her"  
-  bio              : "Clinical Neuroscientist and Research Fellow at the University of Nottingham"
+  bio              : "Clinical Neuroscientist & Research Fellow at the University of Nottingham. Medically trained doctor developing diffusion MRI decomposition methods & studying brain connectomics."
   location         : "Nottingham, UK"
   employer         : "University of Nottingham"
   uri              : # URL
@@ -42,7 +42,7 @@ author:
   semantic         : # URL
   ssrn             : # URL
   pubmed           : "https://pubmed.ncbi.nlm.nih.gov/?term=daniel+halls"
-  researchgate     : https://www.researchgate.net/profile/Daniel-Halls
+  researchgate     : "https://www.researchgate.net/profile/Daniel-Halls"
   scopus           : # URL
   zotero           : # URL
 
@@ -51,7 +51,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "https://github.com/Daniel-Halls"
+  github           : "Daniel-Halls"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
@@ -66,7 +66,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : https://www.linkedin.com/in/daniel-john-halls
+  linkedin         : "daniel-john-halls"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username

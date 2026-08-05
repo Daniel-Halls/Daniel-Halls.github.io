@@ -1,100 +1,93 @@
 ---
 layout: archive
-title: "Publications"
+title: "Publications & Research"
 permalink: /publications/
 author_profile: true
 ---
-<div class="wordwrap" style="margin-bottom: 2rem; font-size: 1.1em;">
-  All publications can be found on:
-  {% if site.author.googlescholar %}
-  <a href="{{site.author.googlescholar}}">Google Scholar profile</a>
-  {% endif %}{% if site.author.googlescholar and site.author.researchgate %}
-  <a href="{{site.author.researchgate}}">ResearchGate profile</a>
-  {% endif %}
-</div>
 
 {% include base_path %}
 
-<h2>Featured Publications</h2>
-<hr />
-<ol class="publication-list">
-  <li>
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      <h2 class="archive__item-title" itemprop="headline">
-        <a href="https://doi.org/10.1016/j.jpsychires.2023.09.006" target="_blank"
-          rel="noopener noreferrer">Longitudinal exploration of biopsychosocial profiles in individuals with anorexia
-          nervosa</a>
-      </h2>
-      <p>Published in <i>Journal of psychiatric research</i>, 2023</p>
-      <p>Recommended citation: <strong>Halls, D.</strong>, Batchelor, R., Holetic, V., Leppanen, J., Williams, S., &amp;
-        Tchanturia, K. (2023). Longitudinal exploration of biopsychosocial profiles in individuals with anorexia
-        nervosa. <em>Journal of psychiatric research</em>, 167, 16--22.</p>
-    </article>
-  </li>
-  <li>
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      <h2 class="archive__item-title" itemprop="headline">
-        <a href="https://doi.org/10.3389/fpsyg.2025.1583417" target="_blank" rel="noopener noreferrer">Longitudinal
-          study of socio-emotional cognitive processing in individuals with anorexia nervosa and the impact of autistic
-          characteristics on neural processing</a>
-      </h2>
-      <p>Published in <i>Frontiers in Psychology</i>, 2025</p>
-      <p>Recommended citation: <strong>Halls, D.</strong>, Leppanen, J., Williams, S., &amp; Tchanturia, K. (2025).
-        Longitudinal study of socio-emotional cognitive processing in individuals with anorexia nervosa and the impact
-        of autistic characteristics on neural processing. <em>Frontiers in Psychology</em>, 16, 1583417.</p>
-    </article>
-  </li>
-</ol>
+<div class="hero-banner" style="padding: 1.75rem 2rem; margin-bottom: 2rem;">
+  <h1 style="margin: 0 0 0.5rem 0; font-size: 2rem;">Publications & Research Papers</h1>
+  <p style="color: var(--text-muted); margin: 0; font-size: 1.05rem;">
+    Peer-reviewed journal articles and scientific contributions in clinical neuroscience, diffusion MRI, and computational psychiatry.
+  </p>
+  <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem;">
+    {% if site.author.googlescholar %}
+      <a href="{{site.author.googlescholar}}" target="_blank" class="pub-badge">
+        <i class="ai ai-google-scholar"></i> Google Scholar Profile
+      </a>
+    {% endif %}
+    {% if site.author.pubmed %}
+      <a href="{{site.author.pubmed}}" target="_blank" class="pub-badge">
+        <i class="ai ai-pubmed"></i> PubMed Profile
+      </a>
+    {% endif %}
+    {% if site.author.orcid %}
+      <a href="{{site.author.orcid}}" target="_blank" class="pub-badge">
+        <i class="ai ai-orcid"></i> ORCID Profile
+      </a>
+    {% endif %}
+    {% if site.author.researchgate %}
+      <a href="{{site.author.researchgate}}" target="_blank" class="pub-badge">
+        <i class="fab fa-researchgate"></i> ResearchGate
+      </a>
+    {% endif %}
+  </div>
+</div>
 
+<div class="glass-panel" style="margin-bottom: 2rem; padding: 1.25rem;">
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+    <div style="flex: 1; min-width: 250px;">
+      <input type="text" id="pub-search-input" placeholder="⚡ Search publications by title, journal, or year..." 
+        style="width: 100%; background: var(--bg-surface); border: 1px solid var(--border-neon); border-radius: 8px; padding: 0.75rem 1rem; color: #fff; font-family: var(--font-body); font-size: 0.95rem; outline: none; transition: border-color 0.2s ease;"
+        onkeyup="filterPublications()"
+      />
+    </div>
+  </div>
+</div>
 
-<!-- New style rendering if publication categories are defined -->
-<style>
-  .publication-list {
-    padding-left: 2rem;
-  }
+<h2 style="color: #fff; font-size: 1.5rem; margin-bottom: 1.25rem;">
+  <i class="fas fa-newspaper" style="color: var(--neon-pink); margin-right: 0.5rem;"></i> Full Publication Catalog
+</h2>
 
-  .publication-list li {
-    margin-bottom: 2rem;
-  }
-
-  .publication-list li::marker {
-    color: var(--global-link-color);
-    font-weight: bold;
-    font-size: 1.2em;
-  }
-
-  .publication-list .archive__item {
-    margin-top: 0;
-  }
-</style>
-
-{% if site.publication_category %}
-{% for category in site.publication_category %}
-{% assign title_shown = false %}
-{% for post in site.publications reversed %}
-{% if post.category != category[0] %}
-{% continue %}
-{% endif %}
-{% unless title_shown %}
-<h2>{{ category[1].title }}</h2>
-<hr />
-<ol class="publication-list">
-  {% assign title_shown = true %}
-  {% endunless %}
-  <li>
-    {% include archive-single.html %}
-  </li>
-  {% endfor %}
-  {% if title_shown %}
-</ol>
-{% endif %}
-{% endfor %}
-{% else %}
-<ol class="publication-list">
+<div id="publications-container">
   {% for post in site.publications reversed %}
-  <li>
-    {% include archive-single.html %}
-  </li>
+    <div class="pub-card publication-item" data-search="{{ post.title | downcase }} {{ post.venue | downcase }} {{ post.date | date: '%Y' }}">
+      <h3 class="pub-title">
+        {% if post.paperurl %}
+          <a href="{{ post.paperurl }}" target="_blank" rel="noopener noreferrer">{{ post.title }}</a>
+        {% else %}
+          <a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>
+        {% endif %}
+      </h3>
+      <div class="pub-venue">
+        <i class="fas fa-journal-whills" style="margin-right: 0.4rem;"></i> Published in <strong>{{ post.venue }}</strong> ({{ post.date | default: "1900-01-01" | date: "%Y" }})
+      </div>
+      {% if post.citation %}
+        <div class="pub-authors">
+          {{ post.citation | replace: "Halls, D.", "<strong style='color: var(--neon-pink);'>Halls, D.</strong>" | replace: "***Halls, D.***", "<strong style='color: var(--neon-pink);'>Halls, D.</strong>" }}
+        </div>
+      {% endif %}
+      <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <span class="pub-badge"><i class="fas fa-calendar-alt"></i> {{ post.date | default: "1900-01-01" | date: "%Y" }}</span>
+        <span class="pub-badge" style="border-color: rgba(176, 38, 255, 0.4); color: #d5b3ff;"><i class="fas fa-bookmark"></i> Peer-Reviewed Journal</span>
+      </div>
+    </div>
   {% endfor %}
-</ol>
-{% endif %}
+</div>
+
+<script>
+function filterPublications() {
+  const query = document.getElementById('pub-search-input').value.toLowerCase();
+  const items = document.querySelectorAll('.publication-item');
+  items.forEach(item => {
+    const text = item.getAttribute('data-search') || '';
+    if (text.includes(query)) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+</script>
