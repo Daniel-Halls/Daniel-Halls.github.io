@@ -1,96 +1,140 @@
-# Academic Pages
-**Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
+# Dr. Daniel Halls — Academic Portfolio Website
 
-![Academic Pages template example](images/themes/homepage-light.png "Academic Pages template example")
+A fast, lightweight, and modern static academic website for **Dr. Daniel Halls** (Clinical Neuroscientist & Research Fellow at the University of Nottingham).
 
-# Getting Started
-
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your public repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
-
-See more info at https://academicpages.github.io/
-
-## Running locally
-
-When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
-
-1. Clone the repository and made updates as detailed above.
-
-### Using a different IDE
-1. Make sure you have ruby-dev, bundler, and nodejs installed
-    
-    On most Linux distribution and [Windows Subsystem Linux](https://learn.microsoft.com/en-us/windows/wsl/about) the command is:
-    ```bash
-    sudo apt install ruby-dev ruby-bundler nodejs
-    ```
-    If you see error `Unable to locate package ruby-bundler`, `Unable to locate package nodejs `, run the following:
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
-    then try run `sudo apt install ruby-dev ruby-bundler nodejs` again.
-
-    On MacOS the commands are:
-    ```bash
-    brew install ruby
-    brew install node
-    gem install bundler
-    ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-
-    If you see file permission error like `Fetching bundler-2.6.3.gem ERROR:  While executing gem (Gem::FilePermissionError) You don't have write permissions for the /var/lib/gems/3.2.0 directory.` or `Bundler::PermissionError: There was an error while trying to write to /usr/local/bin.`
-    Install Gems Locally (Recommended):
-    ```bash
-    bundle config set --local path 'vendor/bundle'
-    ```
-    then try run `bundle install` again. If succeeded, you should see a folder called `vendor` and `.bundle`.
-
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change to Markdown (*.md) and HTML files, while changes to the core template and configuration (i.e., `_config.yml`) will require stoping and restarting Jekyll.
-    You may also try `bundle exec jekyll serve -l -H localhost` to ensure jekyll to use specific dependencies on your own local machine.
-
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
-
-## Using Docker
-
-Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
-
-You can build and execute the container by running the following command in the repository:
-
-```bash
-chmod -R 777 .
-docker compose up
-```
-
-You should now be able to access the website from `localhost:4000`.
-
-### Using the DevContainer in VS Code
-
-If you are using [Visual Studio Code](https://code.visualstudio.com/) you can use the [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) that comes with this Repository. Normally VS Code detects that a development container configuration is available and asks you if you want to use the container. If this doesn't happen you can manually start the container by **F1->DevContainer: Reopen in Container**. This restarts your VS Code in the container and automatically hosts your academic page locally on http://localhost:4000. All changes will be updated live to that page after a few seconds.
-
-# Maintenance
-
-Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
-
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
-
-## Bugfixes and enhancements
-
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
-
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
+Built with **[Astro](https://astro.build/)** with an editorial dark theme (near-black ground, serif display type, hairline rules, one muted brass accent, no icons), instant hot-reloading local preview, and a single-folder content editing architecture.
 
 ---
-<div align="center">
-    
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/academicpages/academicpages.github.io.svg)](https://github.com/academicpages/academicpages.github.io/graphs/contributors)
-[![GitHub release](https://img.shields.io/github/v/release/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/academicpages/academicpages.github.io?color=blue)](https://github.com/academicpages/academicpages.github.io/blob/master/LICENSE)
 
-[![GitHub stars](https://img.shields.io/github/stars/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io)
-[![GitHub forks](https://img.shields.io/github/forks/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/fork)
-</div>
+## ⚡ Quick Start: Local Preview
+
+To preview the website locally on your computer with instant live-reloading:
+
+```bash
+./preview.sh
+```
+*(or run `npm run dev`)*
+
+Then open **[http://localhost:4321](http://localhost:4321)** in your browser. Whenever you edit any Markdown or JSON file in `content/`, your browser updates instantly.
+
+*Press `Ctrl+C` in your terminal to stop the preview server.*
+
+---
+
+## 📝 How to Edit Website Content (No HTML Required!)
+
+**All editable content lives inside a single directory: [`content/`](content/)**. You never have to touch HTML templates, CSS, or deep nested subdirectories:
+
+| Webpage / Section | URL | File to Edit | What You Can Edit |
+| :--- | :--- | :--- | :--- |
+| **Home / Bio** | `/` | [`content/about.md`](content/about.md) | Hero banner, research paragraphs, imaging modalities, pillars, and skills stack |
+| **CV** | `/cv/` | [`content/cv.md`](content/cv.md) | Academic appointments, clinical experience, education degrees, and thesis details |
+| **Projects** | `/portfolio/` | [`content/projects.md`](content/projects.md) | Computational neuroimaging tools, pipelines, descriptions, and tags |
+| **Teaching** | `/teaching/` | [`content/teaching.md`](content/teaching.md) | Teaching roles, university tutoring blocks, and student supervision |
+| **Publications** | `/publications/` | [`content/publications.json`](content/publications.json) | Complete publication catalog (automatically indexed with live search) |
+| **Profile & Links** | (Global) | [`content/profile.json`](content/profile.json) | Name, bio, email, Google Scholar, PubMed, ORCID, GitHub, and LinkedIn links |
+
+---
+
+### Editing Examples
+
+#### 1. Editing Your Bio & Research Text
+Open [`content/about.md`](content/about.md) and edit the text under `## About My Research` in plain Markdown:
+```markdown
+## About My Research
+
+My work operates at the intersection of **psychological medicine**, **computational neuroimaging**, and **behavioural data analysis**...
+```
+
+#### 2. Adding a New Project / Pipeline
+Open [`content/projects.md`](content/projects.md) and add a new item under `projects:`:
+```yaml
+  - title: "Diffusion Signal Decomposition Suite"
+    image: "/images/thalamus_radiations.png"
+    description: "Novel computational algorithms to extract subcortical pathway integrity metrics."
+    tags: ["Python", "Diffusion MRI", "FSL", "Connectomics"]
+```
+
+#### 3. Adding a Publication
+Open [`content/publications.json`](content/publications.json) and add an item at the top of the list:
+```json
+{
+  "title": "Your New Paper Title",
+  "venue": "Journal Name",
+  "year": "2026",
+  "date": "2026-03-01",
+  "citation": "Halls, D., et al. (2026). Your New Paper Title. *Journal Name*.",
+  "url": "https://doi.org/..."
+}
+```
+*(The Publications page at `/publications/` will immediately index and display it with interactive search).*
+
+#### 4. Updating Profile Links or Affiliation
+Open [`content/profile.json`](content/profile.json) and edit the fields directly:
+```json
+{
+  "name": "Dr. Daniel Halls",
+  "title": "Clinical Neuroscientist & Research Fellow",
+  "employer": "University of Nottingham",
+  "email": "Daniel.Halls@Nottingham.ac.uk",
+  "social": {
+    "googlescholar": "https://scholar.google.com/citations?...",
+    "orcid": "https://orcid.org/0000-0002-5372-3179"
+  }
+}
+```
+
+---
+
+## 🌐 Custom Domain Setup
+
+Because this site is built with modern static HTML/CSS, you can host it anywhere on your custom domain for **free** with automatic HTTPS/SSL:
+
+### Option 1: Cloudflare Pages (Recommended)
+1. Sign up / log in to [Cloudflare](https://pages.cloudflare.com/) (100% free).
+2. Go to **Workers & Pages** > **Create application** > **Pages** > **Connect to Git**.
+3. Select this GitHub repository.
+4. Set build settings:
+   - **Framework preset**: `Astro`
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+5. Click **Save and Deploy**.
+6. In your Pages dashboard, click **Custom domains** > **Set up a custom domain**, enter your domain name, and follow the simple 2-click DNS prompt. Cloudflare provides global edge caching and free SSL automatically.
+
+### Option 2: Vercel
+1. Log in to [Vercel](https://vercel.com/) and click **Add New...** > **Project**.
+2. Import this repository (Vercel automatically detects Astro).
+3. Click **Deploy**.
+4. In **Settings** > **Domains**, enter your domain name and point your DNS CNAME/A records as shown.
+
+### Option 3: GitHub Pages with Your Custom Domain
+If you want to keep hosting on GitHub:
+1. Go to repository **Settings** > **Pages**.
+2. Under **Build and deployment** > **Source**, select **GitHub Actions**. (The `.github/workflows/deploy.yml` file will automatically build the Astro site on every git push).
+3. Under **Custom domain**, enter your domain name (e.g. `danielhalls.com`).
+4. At your domain registrar, add a CNAME record pointing to `Daniel-Halls.github.io`.
+
+---
+
+## 📁 Repository Directory Structure
+
+```text
+├── content/               <-- THE ONLY FOLDER YOU NEED TO EDIT
+│   ├── about.md           (Home page bio, imaging modalities, pillars, skills)
+│   ├── cv.md              (Curriculum Vitae experience & education)
+│   ├── projects.md        (Computational tools and pipelines)
+│   ├── teaching.md        (Teaching appointments and supervision)
+│   ├── publications.json  (Publication catalog)
+│   └── profile.json       (Author name, affiliations, and social links)
+├── public/                <-- Static assets
+│   ├── images/            (Profile avatar and brain imaging scans)
+│   └── files/             (Downloads, BibTeX files)
+├── src/                   <-- Website layout & styling engine
+│   ├── components/        (Header, Footer)
+│   ├── layouts/           (Main Layout template)
+│   ├── pages/             (Route endpoints: /, /cv/, /portfolio/, /teaching/, /publications/)
+│   └── styles/            (Editorial dark theme, global.css)
+├── preview.sh             <-- Run to preview changes locally: ./preview.sh
+├── astro.config.mjs       <-- Astro static configuration
+└── package.json           <-- Node dependencies and scripts
+```

@@ -1,0 +1,18 @@
+{
+  "name": "Dr. Daniel Halls",
+  "pronouns": "he/him",
+  "title": "Clinical Neuroscientist & Research Fellow",
+  "employer": "University of Nottingham",
+  "location": "Nottingham, UK",
+  "email": "Daniel.Halls@Nottingham.ac.uk",
+  "avatar": "/images/profile.png",
+  "bio": "Clinical Neuroscientist & Research Fellow at the University of Nottingham. Medically trained doctor developing diffusion MRI decomposition methods & studying brain connectomics.",
+  "social": {
+    "googlescholar": "https://scholar.google.com/citations?user=uJFG3kUAAAAJ&hl=en",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/?term=daniel+halls",
+    "orcid": "https://orcid.org/0000-0002-5372-3179",
+    "researchgate": "https://www.researchgate.net/profile/Daniel-Halls",
+    "github": "https://github.com/Daniel-Halls",
+    "linkedin": "https://www.linkedin.com/in/daniel-john-halls"
+  }
+}

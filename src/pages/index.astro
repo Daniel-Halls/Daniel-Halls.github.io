@@ -1,0 +1,86 @@
+---
+import Layout from "../layouts/Layout.astro";
+import profile from "../../content/profile.json";
+import * as about from "../../content/about.md";
+
+const { hero, modalities = [], pillars = [], skills = [] } = about.frontmatter;
+const Content = about.Content;
+
+const profileLinks = [
+  { label: "Google Scholar", url: profile.social.googlescholar },
+  { label: "PubMed", url: profile.social.pubmed },
+  { label: "ResearchGate", url: profile.social.researchgate },
+  { label: "LinkedIn", url: profile.social.linkedin },
+  { label: "GitHub", url: profile.social.github },
+].filter((l) => Boolean(l.url));
+---
+
+<Layout>
+  <section class="intro">
+    <div>
+      {hero.eyebrow && <p class="eyebrow">{hero.eyebrow}</p>}
+      <h1 class="display">{hero.title}</h1>
+      <p class="lead">{hero.lead}</p>
+      <p class="intro-links">
+        {hero.links?.map((l: { title: string; url: string }) => (
+          <a class="link" href={l.url}>{l.title}</a>
+        ))}
+        <a class="link" href={`mailto:${profile.email}`}>Contact</a>
+      </p>
+    </div>
+    <img class="portrait" src={profile.avatar} alt={profile.name} />
+  </section>
+
+  <ul class="profile-links" aria-label="Profiles">
+    {profileLinks.map((l) => (
+      <li><a href={l.url} target="_blank" rel="noopener noreferrer">{l.label}</a></li>
+    ))}
+  </ul>
+
+  <section class="row">
+    <h2 class="row-label">Research</h2>
+    <div class="prose"><Content /></div>
+  </section>
+
+  {modalities.length > 0 && (
+    <section class="row">
+      <h2 class="row-label">Imaging</h2>
+      <div class="figures">
+        {modalities.map((m: any) => (
+          <figure class="figure">
+            <img src={m.image} alt={m.title} loading="lazy" />
+            <figcaption>
+              <p class="figure-title">{m.title}</p>
+              <p class="figure-desc">{m.description}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {pillars.length > 0 && (
+    <section class="row">
+      <h2 class="row-label">Focus areas</h2>
+      <ol class="focus">
+        {pillars.map((p: any) => (
+          <li>
+            <div>
+              <p class="focus-title">{p.title}</p>
+              <p class="focus-text">{p.description}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+  )}
+
+  {skills.length > 0 && (
+    <section class="row">
+      <h2 class="row-label">Methods</h2>
+      <ul class="inline-list">
+        {skills.map((s: string) => <li>{s}</li>)}
+      </ul>
+    </section>
+  )}
+</Layout>

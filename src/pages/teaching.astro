@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import * as page from "../../content/teaching.md";
+
+const { title, lead, teaching = [] } = page.frontmatter;
+---
+
+<Layout title="Teaching">
+  <header class="page-head">
+    <h1 class="page-title">{title}</h1>
+    {lead && <p class="page-lead">{lead}</p>}
+  </header>
+
+  <section class="row">
+    <h2 class="row-label">Appointments</h2>
+    <div>
+      {teaching.map((t: any) => (
+        <div class="entry">
+          <div class="entry-date">{t.year}</div>
+          <div>
+            <p class="entry-title">{t.title}</p>
+            <p class="entry-sub">{t.venue}{t.role_type ? `, ${t.role_type}` : ""}</p>
+            {t.description && <div class="entry-body"><p>{t.description}</p></div>}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

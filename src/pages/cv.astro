@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+import * as cv from "../../content/cv.md";
+
+const { title, lead, experience = [], education = [] } = cv.frontmatter;
+---
+
+<Layout title={title}>
+  <header class="page-head">
+    <h1 class="page-title">{title}</h1>
+    {lead && <p class="page-lead">{lead}</p>}
+  </header>
+
+  {experience.length > 0 && (
+    <section class="row">
+      <h2 class="row-label">Experience</h2>
+      <div>
+        {experience.map((e: any) => (
+          <div class="entry">
+            <div class="entry-date">{e.dates}</div>
+            <div>
+              <p class="entry-title">{e.role}</p>
+              <p class="entry-sub">{e.org}</p>
+              <div class="entry-body">
+                {e.bullets && <ul>{e.bullets.map((b: string) => <li>{b}</li>)}</ul>}
+                {e.description && <p>{e.description}</p>}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {education.length > 0 && (
+    <section class="row">
+      <h2 class="row-label">Education</h2>
+      <div>
+        {education.map((e: any) => (
+          <div class="entry">
+            <div class="entry-date">{e.dates}</div>
+            <div>
+              <p class="entry-title">{e.degree}</p>
+              <p class="entry-sub">{e.institution}</p>
+              <div class="entry-body">
+                {e.thesis && <p><strong>Thesis:</strong> {e.thesis}</p>}
+                {e.details && <p>{e.details}</p>}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+</Layout>

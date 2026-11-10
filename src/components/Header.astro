@@ -1,0 +1,32 @@
+---
+import profile from "../../content/profile.json";
+
+const pathname = Astro.url.pathname;
+
+const items = [
+  { title: "Publications", href: "/publications/" },
+  { title: "Projects", href: "/portfolio/" },
+  { title: "Teaching", href: "/teaching/" },
+  { title: "CV", href: "/cv/" },
+];
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="brand">{profile.name}</a>
+    <nav aria-label="Primary">
+      <ul class="nav">
+        {items.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={pathname.startsWith(item.href) ? "page" : undefined}
+            >
+              {item.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

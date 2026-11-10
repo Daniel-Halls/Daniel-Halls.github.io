@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro";
+import publications from "../../content/publications.json";
+
+interface Pub {
+  title: string;
+  venue: string;
+  year: string;
+  date: string;
+  citation: string;
+  url: string;
+}
+
+/** Pull the author list out of a citation like "A, B & C (2025). Title. Journal". */
+function authorsOf(pub: Pub): string {
+  const m = pub.citation.match(/^(.*?)\s*\(\d{4}\)\./);
+  return m ? m[1] : "";
+}
+
+/** Everything in the citation after the title: journal, volume, pages. */
+function venueOf(pub: Pub): string {
+  const idx = pub.citation.indexOf(pub.title);
+  if (idx === -1) return pub.venue;
+  const rest = pub.citation.slice(idx + pub.title.length).replace(/^[.\s]+/, "").trim();
+  return rest || pub.venue;
+}
+
+function highlight(authors: string): string {
+  return authors.replace(/Halls, D\./g, "<strong>Halls, D.</strong>");
+}
+
+const sorted = [...(publications as Pub[])].sort((a, b) => b.date.localeCompare(a.date));
+const byYear = new Map<string, Pub[]>();
+for (const p of sorted) {
+  byYear.set(p.year, [...(byYear.get(p.year) ?? []), p]);
+}
+const years = [...byYear.entries()];
+---
+
+<Layout title="Publications">
+  <header class="page-head">
+    <h1 class="page-title">Publications</h1>
+    <p class="page-lead">
+      Peer-reviewed articles and preprints in clinical neuroscience, diffusion MRI, and computational psychiatry.
+    </p>
+  </header>
+
+  <div class="search">
+    <input
+      id="search"
+      type="search"
+      placeholder={`Search ${sorted.length} publications`}
+      aria-label="Search publications"
+      autocomplete="off"
+    />
+  </div>
+
+  {years.map(([year, pubs]) => (
+    <section class="row year-group">
+      <h2 class="row-label year">{year}</h2>
+      <div>
+        {pubs.map((p) => (
+          <article class="pub" data-search={`${p.title} ${p.venue} ${p.citation}`.toLowerCase()}>
+            <h3 class="pub-title">
+              {p.url ? <a href={p.url} target="_blank" rel="noopener noreferrer">{p.title}</a> : p.title}
+            </h3>
+            <p class="pub-authors" set:html={highlight(authorsOf(p))} />
+            <p class="pub-venue">{venueOf(p)}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <p class="empty" id="empty">No publications match your search.</p>
+</Layout>
+
+<script>
+  const input = document.getElementById("search") as HTMLInputElement | null;
+  const empty = document.getElementById("empty") as HTMLElement | null;
+
+  input?.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    let total = 0;
+
+    document.querySelectorAll<HTMLElement>(".year-group").forEach((group) => {
+      let visible = 0;
+      group.querySelectorAll<HTMLElement>(".pub").forEach((pub) => {
+        const match = (pub.dataset.search ?? "").includes(q);
+        pub.style.display = match ? "" : "none";
+        if (match) visible += 1;
+      });
+      group.style.display = visible > 0 ? "" : "none";
+      total += visible;
+    });
+
+    if (empty) empty.style.display = total === 0 ? "block" : "none";
+  });
+</script>

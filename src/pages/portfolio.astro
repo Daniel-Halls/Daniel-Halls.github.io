@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import * as page from "../../content/projects.md";
+
+const { title, lead, projects = [] } = page.frontmatter;
+---
+
+<Layout title="Projects">
+  <header class="page-head">
+    <h1 class="page-title">{title}</h1>
+    {lead && <p class="page-lead">{lead}</p>}
+  </header>
+
+  {projects.map((p: any) => (
+    <article class="project">
+      {p.image && <img src={p.image} alt={p.title} loading="lazy" />}
+      <div>
+        <h2 class="project-title">
+          {p.url ? <a class="link" href={p.url} target="_blank" rel="noopener noreferrer">{p.title}</a> : p.title}
+        </h2>
+        <p class="project-desc">{p.description}</p>
+        {p.tags && (
+          <ul class="inline-list small">
+            {p.tags.map((t: string) => <li>{t}</li>)}
+          </ul>
+        )}
+      </div>
+    </article>
+  ))}
+</Layout>
