@@ -3,10 +3,10 @@ title: "Computational Projects & Pipelines"
 lead: "Open-science software tools, neuroimaging processing pipelines, and computational connectomics frameworks."
 
 projects:
-  - title: "dMRI Signal Decomposition Tools"
+  - title: "NFACT"
     image: "/images/thalamus_radiations.png"
     description: "Computational signal decomposition methods developed at the University of Nottingham to extract subcortical pathway integrity and thalamocortical radiation metrics."
-    tags: ["Python", "MRtrix3", "FSL", "HARDI"]
+    tags: ["Python", "NFACT", "FSL", "Decomposition"]
 
   - title: "Resting-State Cyclic Connectivity"
     image: "/images/rsfMRI.png"
